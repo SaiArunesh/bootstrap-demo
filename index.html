@@ -64,8 +64,8 @@
               >
             </li>
           </ul>
-          <span class="navbar-text"
-            ><a href="" data-toggle="modal" data-target="#loginModal"
+          <span class="navbar-text" id="loginModalButton"
+            ><a href="#loginModal"
               ><span class="fa fa-sign-in"></span>Login
             </a></span
           >
@@ -194,7 +194,11 @@
               </div>
               <div class="form-group row">
                 <div class="col offset-0 offset-sm-2">
-                  <button type="submit" class="btn btn-secondary">
+                  <button
+                    type="submit"
+                    class="btn btn-secondary"
+                    data-dismiss="modal"
+                  >
                     Cancel
                   </button>
 
@@ -283,11 +287,10 @@
           </div>
           <div class="align-self-center col-12 col-sm-3 text-center">
             <a
-              href="#reservation"
+              id="reservation"
               type="button"
               class="btn btn-block nav-link btn-sm btn-warning"
-              data-toggle="modal"
-              data-target="#reserveModal"
+              href="#reserveModal"
               >Reserve table</a
             >
           </div>
@@ -534,6 +537,13 @@
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <script>
       $(document).ready(function () {
+        $("#loginModalButton").click(function () {
+          $("#loginModal").modal("toggle");
+        });
+        $("#reservation").click(function () {
+          $("#reserveModal").modal("toggle");
+        });
+
         $("#mycarousel").carousel({ interval: 1 });
         $("#carouselButton").click(function () {
           $("#carouselButton").click(function () {
